@@ -2,7 +2,7 @@ package MooseX::Types::UUID;
 use strict;
 use warnings;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 our $AUTHORITY = 'CPAN:JROCKWAY';
 
 use MooseX::Types -declare => ['UUID'];
@@ -10,7 +10,7 @@ use MooseX::Types::Moose qw(Str);
 
 sub _validate_uuid {
     my ($str) = @_;
-    return $str =~ /^[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}$/;
+    return $str =~ /^[[:xdigit:]]{8}-[[:xdigit:]]{4}-[[:xdigit:]]{4}-[[:xdigit:]]{4}-[[:xdigit:]]{12}$/;
 }
 
 subtype UUID,
